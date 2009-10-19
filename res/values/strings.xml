@@ -26,7 +26,7 @@
          for the system. -->
     <string name="live_wallpaper_picker_title">Live wallpaper</string>    
     <!-- List item for configuring the current wallpaper -->
-    <string name="configure_wallpaper">Configure...</string>
+    <string name="configure_wallpaper">Settings…</string>
     <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
     <string name="wallpaper_instructions">Set wallpaper</string>
     <!-- Warning message, no live wallpapers available. -->

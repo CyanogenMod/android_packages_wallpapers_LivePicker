@@ -293,7 +293,7 @@ public class LiveWallpaperPickActivity extends Activity implements
         button.setOnClickListener(this);
         
         mConfigureButton = (Button)findViewById(R.id.configure);
-        mConfigureButton.setEnabled(false);
+        mConfigureButton.setVisibility(View.GONE);
         mConfigureButton.setOnClickListener(this);
       
         // Set default return data
@@ -340,8 +340,11 @@ public class LiveWallpaperPickActivity extends Activity implements
     public void onItemSelected(AdapterView parent, View v, int position, long id) {
         mSelectedIntent = mWallpaperIntents.get(position);
         mSelectedInfo = mWallpaperInfos.get(position);
-        mConfigureButton.setEnabled(mSelectedInfo != null
-                && mSelectedInfo.getSettingsActivity() != null);
+        mConfigureButton.setVisibility(
+            (mSelectedInfo != null && 
+                mSelectedInfo.getSettingsActivity() != null)
+            ? View.VISIBLE
+            : View.GONE);
         findViewById(R.id.set).setEnabled(true);
         
         WallpaperConnection conn = new WallpaperConnection(mSelectedIntent);
@@ -359,6 +362,8 @@ public class LiveWallpaperPickActivity extends Activity implements
                 try {
                     mWallpaperManager.getIWallpaperManager().setWallpaperComponent(
                             mSelectedIntent.getComponent());
+                    mWallpaperManager.setWallpaperOffsets(
+                        v.getRootView().getWindowToken(), 0.5f, 0.0f);
                     this.setResult(RESULT_OK);
                 } catch (RemoteException e) {
                     // do nothing
