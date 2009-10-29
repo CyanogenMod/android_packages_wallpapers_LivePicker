@@ -17,10 +17,10 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for application_name (4119979710394894209) -->
     <skip />
-    <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"Aktive bakgrunner"</string>
+    <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"Levende bakgrunnsbilde"</string>
     <!-- no translation found for configure_wallpaper (7396598925806288258) -->
     <skip />
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Velg bakgrunnsbilde"</string>
-    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Ingen aktive bakgrunner"</string>
-    <string name="set_live_wallpaper" msgid="2381437614949033266">"Angi bakgrunn"</string>
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Ingen levende bakgrunnsbilder."</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Velg bakgrunnsbilde"</string>
 </resources>

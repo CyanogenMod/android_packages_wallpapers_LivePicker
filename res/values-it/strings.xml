@@ -17,13 +17,10 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for application_name (4119979710394894209) -->
     <skip />
-    <!-- no translation found for live_wallpaper_picker_title (7738370557178100072) -->
-    <skip />
+    <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"Sfondo live"</string>
     <!-- no translation found for configure_wallpaper (7396598925806288258) -->
     <skip />
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Imposta sfondo"</string>
-    <!-- no translation found for live_wallpaper_empty (4278728108785853407) -->
-    <skip />
-    <!-- no translation found for set_live_wallpaper (2381437614949033266) -->
-    <skip />
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Nessuno sfondo live."</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Imposta sfondo"</string>
 </resources>
