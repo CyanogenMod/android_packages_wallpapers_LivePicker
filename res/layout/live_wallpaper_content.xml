@@ -43,6 +43,17 @@
 	        />
 	</FrameLayout>
 	
+    <com.android.wallpaper.livepicker.BubbleTextView
+        style="@style/WorkspaceIcon" 
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginBottom="4dip"
+        />
+
     <Gallery android:id="@+id/gallery"
         android:gravity="fill"
         android:layout_width="fill_parent"

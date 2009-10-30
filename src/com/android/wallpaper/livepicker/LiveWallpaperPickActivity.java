@@ -54,6 +54,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.List;
@@ -76,6 +77,7 @@ public class LiveWallpaperPickActivity extends Activity implements
     WallpaperConnection mWallpaperConnection;
 
     private Button mConfigureButton;
+    private TextView mWallpaperTitle;
     
     private ArrayList<Intent> mWallpaperIntents;
     private ArrayList<WallpaperInfo> mWallpaperInfos;
@@ -295,6 +297,9 @@ public class LiveWallpaperPickActivity extends Activity implements
         mConfigureButton = (Button)findViewById(R.id.configure);
         mConfigureButton.setVisibility(View.GONE);
         mConfigureButton.setOnClickListener(this);
+
+        mWallpaperTitle = (TextView)findViewById(R.id.title);
+        mWallpaperTitle.setVisibility(View.GONE);
       
         // Set default return data
         setResult(RESULT_CANCELED);
@@ -346,6 +351,9 @@ public class LiveWallpaperPickActivity extends Activity implements
             ? View.VISIBLE
             : View.GONE);
         findViewById(R.id.set).setEnabled(true);
+
+        findViewById(R.id.title).setVisibility(View.VISIBLE);
+        mWallpaperTitle.setText(mSelectedInfo.loadLabel(mPackageManager).toString());
         
         WallpaperConnection conn = new WallpaperConnection(mSelectedIntent);
         if (conn.connect()) {
