@@ -15,11 +15,9 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for application_name (4119979710394894209) -->
-    <skip />
+    <string name="application_name" msgid="4119979710394894209">"Live Wallpaper Picker"</string>
     <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"Aktywna tapeta"</string>
-    <!-- no translation found for configure_wallpaper (7396598925806288258) -->
-    <skip />
+    <string name="configure_wallpaper" msgid="7396598925806288258">"Ustawienia…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Ustaw tapetę"</string>
     <string name="live_wallpaper_empty" msgid="4278728108785853407">"Brak aktywnych tapet."</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"Ustaw tapetę"</string>
