@@ -37,7 +37,6 @@ public class BubbleTextView extends TextView {
     private Paint mPaint;
 
     private boolean mBackgroundSizeChanged;
-    private Drawable mBackground;
     private float mCornerRadius;
     private float mPaddingH;
     private float mPaddingV;
@@ -58,7 +57,6 @@ public class BubbleTextView extends TextView {
     }
 
     private void init() {
-        mBackground = getBackground();
         setBackgroundDrawable(null);
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -80,40 +78,7 @@ public class BubbleTextView extends TextView {
     }
 
     @Override
-    protected boolean verifyDrawable(Drawable who) {
-        return who == mBackground || super.verifyDrawable(who);
-    }
-
-    @Override
-    protected void drawableStateChanged() {
-        Drawable d = mBackground;
-        if (d != null && d.isStateful()) {
-            d.setState(getDrawableState());
-        }
-        super.drawableStateChanged();
-    }
-
-    @Override
     public void draw(Canvas canvas) {
-        final Drawable background = mBackground;
-        if (background != null) {
-            final int scrollX = mScrollX;
-            final int scrollY = mScrollY;
-
-            if (mBackgroundSizeChanged) {
-                background.setBounds(0, 0,  mRight - mLeft, mBottom - mTop);
-                mBackgroundSizeChanged = false;
-            }
-
-            if ((scrollX | scrollY) == 0) {
-                background.draw(canvas);
-            } else {
-                canvas.translate(scrollX, scrollY);
-                background.draw(canvas);
-                canvas.translate(-scrollX, -scrollY);
-            }
-        }
-
         final Layout layout = getLayout();
         final RectF rect = mRect;
         final int left = getCompoundPaddingLeft();
@@ -126,17 +91,5 @@ public class BubbleTextView extends TextView {
         canvas.drawRoundRect(rect, mCornerRadius, mCornerRadius, mPaint);
 
         super.draw(canvas);
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        mBackground.setCallback(this);
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        mBackground.setCallback(null);
     }
 }
