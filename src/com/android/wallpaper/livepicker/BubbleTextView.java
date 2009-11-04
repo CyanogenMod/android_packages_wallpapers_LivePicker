@@ -58,7 +58,6 @@ public class BubbleTextView extends TextView {
     }
 
     private void init() {
-        setFocusable(true);
         mBackground = getBackground();
         setBackgroundDrawable(null);
 
