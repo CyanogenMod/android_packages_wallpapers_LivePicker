@@ -20,6 +20,36 @@
     android:layout_height="fill_parent"
     >
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dip"
+        android:layout_marginLeft="6dip"
+        >
+        <TextView android:id="@+id/title"
+            style="@style/WallpaperTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView android:id="@+id/author"
+            style="@style/WallpaperTitle"
+            android:layout_below="@id/title"
+            android:textSize="14dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            />
+        <TextView android:id="@+id/synopsis"
+            style="@style/WallpaperTitle"
+            android:layout_below="@id/author"
+            android:textSize="14dip"
+            android:ems="15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            />
+    </RelativeLayout>
+
 	<FrameLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="0px"
@@ -43,17 +73,6 @@
 	        />
 	</FrameLayout>
 	
-    <com.android.wallpaper.livepicker.BubbleTextView
-        style="@style/WorkspaceIcon" 
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginBottom="4dip"
-        />
-
     <Gallery android:id="@+id/gallery"
         android:gravity="fill"
         android:layout_width="fill_parent"
