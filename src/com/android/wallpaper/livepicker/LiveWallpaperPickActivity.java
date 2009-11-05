@@ -28,6 +28,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Bitmap;
@@ -42,6 +43,7 @@ import android.service.wallpaper.IWallpaperEngine;
 import android.service.wallpaper.IWallpaperService;
 import android.service.wallpaper.WallpaperService;
 import android.service.wallpaper.WallpaperSettingsActivity;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -78,6 +80,8 @@ public class LiveWallpaperPickActivity extends Activity implements
 
     private Button mConfigureButton;
     private TextView mWallpaperTitle;
+    private TextView mWallpaperAuthor;
+    private TextView mWallpaperSynopsis;
     
     private ArrayList<Intent> mWallpaperIntents;
     private ArrayList<WallpaperInfo> mWallpaperInfos;
@@ -299,7 +303,8 @@ public class LiveWallpaperPickActivity extends Activity implements
         mConfigureButton.setOnClickListener(this);
 
         mWallpaperTitle = (TextView)findViewById(R.id.title);
-        mWallpaperTitle.setVisibility(View.GONE);
+        mWallpaperAuthor = (TextView)findViewById(R.id.author);
+        mWallpaperSynopsis = (TextView)findViewById(R.id.synopsis);
       
         // Set default return data
         setResult(RESULT_CANCELED);
@@ -352,8 +357,18 @@ public class LiveWallpaperPickActivity extends Activity implements
             : View.GONE);
         findViewById(R.id.set).setEnabled(true);
 
-        findViewById(R.id.title).setVisibility(View.VISIBLE);
         mWallpaperTitle.setText(mSelectedInfo.loadLabel(mPackageManager).toString());
+        try {
+            mWallpaperAuthor.setText(mSelectedInfo.loadAuthor(mPackageManager).toString());
+        } catch (NotFoundException e) {
+            mWallpaperAuthor.setText("");
+        }
+        try {
+            String htmlText = mSelectedInfo.loadDescription(mPackageManager).toString();
+            mWallpaperSynopsis.setText(Html.fromHtml(htmlText));
+        } catch (NotFoundException e) {
+            mWallpaperSynopsis.setText("");
+        }
         
         WallpaperConnection conn = new WallpaperConnection(mSelectedIntent);
         if (conn.connect()) {
