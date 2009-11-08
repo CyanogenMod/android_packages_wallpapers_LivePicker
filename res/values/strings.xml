@@ -24,7 +24,9 @@
     <string name="application_name">Live Wallpaper Picker</string>
     <!-- Title for the screen that lets the user choose a live wallpaper to use
          for the system. -->
-    <string name="live_wallpaper_picker_title">Live wallpaper</string>    
+    <string name="live_wallpaper_picker_title">Live wallpaper</string>
+    <!-- Title for the screen that lets the user preview a live wallpaper. -->
+    <string name="live_wallpaper_preview_title">Live wallpaper preview</string>
     <!-- List item for configuring the current wallpaper -->
     <string name="configure_wallpaper">Settings…</string>
     <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
@@ -33,5 +35,7 @@
     <string name="live_wallpaper_empty">No live wallpapers.</string>
     <!-- Button label, action, sets the currently selected wallpaper. -->
     <string name="set_live_wallpaper">Set wallpaper</string>
-    
+    <!-- Label, title and author of the live wallpaper -->
+    <string name="wallpaper_title_and_author"><xliff:g id="title" example="Galaxy">%1$s</xliff:g> by <xliff:g id="author" example="Google">%2$s</xliff:g></string>
+
 </resources>
