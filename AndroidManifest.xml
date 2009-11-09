@@ -30,10 +30,11 @@
         android:label="@string/application_name"
         android:icon="@drawable/ic_launcher_appwidget">
 
-        <activity android:name="LiveWallpaperPickActivity"
-                android:icon="@drawable/ic_launcher_appwidget"
-                android:label="@string/live_wallpaper_picker_title"
-                android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
+        <activity android:name="LiveWallpaperListActivity"
+            android:icon="@drawable/ic_launcher_appwidget"
+            android:label="@string/live_wallpaper_picker_title"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.service.wallpaper.LIVE_WALLPAPER_CHOOSER" />
                 <action android:name="android.intent.action.SET_WALLPAPER" />
@@ -41,6 +42,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="LiveWallpaperPreview"
+            android:icon="@drawable/ic_launcher_appwidget"
+            android:label="@string/live_wallpaper_preview_title"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:screenOrientation="nosensor" />
+        
     </application>
 
 </manifest>
