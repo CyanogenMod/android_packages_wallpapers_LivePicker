@@ -43,7 +43,10 @@ import android.text.Html;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 import java.io.IOException;
+import java.text.Collator;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -89,6 +92,19 @@ public class LiveWallpaperListActivity extends ListActivity implements AdapterVi
         paint.setTextAlign(Paint.Align.CENTER);
 
         Canvas canvas = new Canvas();
+
+        Collections.sort(list, new Comparator<ResolveInfo>() {
+            final Collator mCollator;
+
+            {
+                mCollator = Collator.getInstance();                    
+            }
+
+            public int compare(ResolveInfo info1, ResolveInfo info2) {
+                return mCollator.compare(info1.loadLabel(mPackageManager),
+                        info2.loadLabel(mPackageManager));
+            }
+        });
 
         for (int i = 0; i < listSize; i++) {
             ResolveInfo resolveInfo = list.get(i);
