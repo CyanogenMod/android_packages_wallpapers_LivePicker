@@ -48,6 +48,7 @@ public class LiveWallpaperPreview extends Activity {
     private String mSettings;
     private String mPackageName;
     private Intent mWallpaperIntent;
+    private View mView;
 
     static void showPreview(Activity activity, int code, Intent intent, WallpaperInfo info) {
         Intent preview = new Intent(activity, LiveWallpaperPreview.class);
@@ -69,19 +70,17 @@ public class LiveWallpaperPreview extends Activity {
         }
 
         setContentView(R.layout.live_wallpaper_preview);
+        mView = findViewById(R.id.configure);
 
         mSettings = extras.getString(EXTRA_LIVE_WALLPAPER_SETTINGS);
         mPackageName = extras.getString(EXTRA_LIVE_WALLPAPER_PACKAGE);
         if (mSettings == null) {
-            findViewById(R.id.configure).setVisibility(View.GONE);
+            mView.setVisibility(View.GONE);
         }
 
         mWallpaperManager = WallpaperManager.getInstance(this);
 
-        WallpaperConnection connection = new WallpaperConnection(mWallpaperIntent);
-        if (connection.connect()) {
-            mWallpaperConnection = connection;
-        }
+        mWallpaperConnection = new WallpaperConnection(mWallpaperIntent);
     }
 
     public void setLiveWallpaper(View v) {
@@ -129,7 +128,15 @@ public class LiveWallpaperPreview extends Activity {
             }
         }
     }
-    
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (!mWallpaperConnection.connect()) {
+            mWallpaperConnection = null;
+        }
+    }
+
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
@@ -180,10 +187,11 @@ public class LiveWallpaperPreview extends Activity {
             if (mWallpaperConnection == this) {
                 mService = IWallpaperService.Stub.asInterface(service);
                 try {
-                    final View view = getWindow().getDecorView().getRootView();
+                    final View view = mView;
+                    final View root = view.getRootView();
                     mService.attach(this, view.getWindowToken(),
                             WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA,
-                            true, view.getWidth(), view.getHeight());
+                            true, root.getWidth(), view.getHeight());
                 } catch (RemoteException e) {
                     Log.w(LOG_TAG, "Failed attaching wallpaper; clearing", e);
                 }
