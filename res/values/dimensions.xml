@@ -18,7 +18,8 @@
 -->
 
 <resources>
-    <color name="live_wallpaper_thumbnail_background">#CC666666</color>
-    <color name="live_wallpaper_thumbnail_text_color">#FFFFFFFF</color>
+    <dimen name="live_wallpaper_thumbnail_text_size">14dip</dimen>
+    <dimen name="live_wallpaper_thumbnail_text_offset">12dip</dimen>
+    <dimen name="live_wallpaper_thumbnail_width">100dip</dimen>
+    <dimen name="live_wallpaper_thumbnail_height">79dip</dimen>
 </resources>
-
