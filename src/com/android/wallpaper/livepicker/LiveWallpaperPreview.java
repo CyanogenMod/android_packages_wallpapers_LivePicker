@@ -93,6 +93,7 @@ public class LiveWallpaperPreview extends Activity {
         try {
             mWallpaperManager.getIWallpaperManager().setWallpaperComponent(
                     mWallpaperIntent.getComponent());
+            mWallpaperManager.setWallpaperOffsetSteps(0.5f, 0.0f);
             mWallpaperManager.setWallpaperOffsets(v.getRootView().getWindowToken(), 0.5f, 0.0f);
             setResult(RESULT_OK);
         } catch (RemoteException e) {
