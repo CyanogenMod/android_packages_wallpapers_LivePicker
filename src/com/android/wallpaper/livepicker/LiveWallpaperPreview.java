@@ -32,6 +32,7 @@ import android.os.RemoteException;
 import android.os.IBinder;
 import android.os.ParcelFileDescriptor;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.ViewGroup;
@@ -182,6 +183,25 @@ public class LiveWallpaperPreview extends Activity {
         mWallpaperConnection = null;
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (mWallpaperConnection != null && mWallpaperConnection.mEngine != null) {
+            MotionEvent dup = MotionEvent.obtainNoHistory(ev);
+            try {
+                mWallpaperConnection.mEngine.dispatchPointer(dup);
+            } catch (RemoteException e) {
+            }
+        }
+        
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            onUserInteraction();
+        }
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
+    }
+    
     class WallpaperConnection extends IWallpaperConnection.Stub implements ServiceConnection {
         final Intent mIntent;
         IWallpaperService mService;
