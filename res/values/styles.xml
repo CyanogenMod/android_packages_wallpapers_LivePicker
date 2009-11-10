@@ -27,4 +27,10 @@
         <item name="android:textColor">#FFFFFFFF</item>
         <item name="android:gravity">left</item>
     </style>
+    
+    <style name="Preview" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
 </resources>

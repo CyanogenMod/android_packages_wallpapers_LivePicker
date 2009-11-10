@@ -19,6 +19,7 @@ package com.android.wallpaper.livepicker;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.app.WallpaperInfo;
+import android.app.Dialog;
 import android.service.wallpaper.IWallpaperConnection;
 import android.service.wallpaper.IWallpaperService;
 import android.service.wallpaper.IWallpaperEngine;
@@ -33,7 +34,11 @@ import android.os.ParcelFileDescriptor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.LayoutInflater;
 import android.util.Log;
+import android.widget.TextView;
 
 public class LiveWallpaperPreview extends Activity {
     static final String EXTRA_LIVE_WALLPAPER_INTENT = "android.live_wallpaper.intent";
@@ -49,6 +54,7 @@ public class LiveWallpaperPreview extends Activity {
     private String mPackageName;
     private Intent mWallpaperIntent;
     private View mView;
+    private Dialog mDialog;
 
     static void showPreview(Activity activity, int code, Intent intent, WallpaperInfo info) {
         Intent preview = new Intent(activity, LiveWallpaperPreview.class);
@@ -132,14 +138,43 @@ public class LiveWallpaperPreview extends Activity {
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!mWallpaperConnection.connect()) {
-            mWallpaperConnection = null;
-        }
+
+        showLoading();
+
+        mView.post(new Runnable() {
+            public void run() {
+                if (!mWallpaperConnection.connect()) {
+                    mWallpaperConnection = null;
+                }
+            }
+        });
+    }
+
+    private void showLoading() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        TextView content = (TextView) inflater.inflate(R.layout.live_wallpaper_loading, null);
+
+        mDialog = new Dialog(this, android.R.style.Theme_Black);
+
+        Window window = mDialog.getWindow();
+        WindowManager.LayoutParams lp = window.getAttributes();
+
+        lp.width = WindowManager.LayoutParams.FILL_PARENT;
+        lp.height = WindowManager.LayoutParams.FILL_PARENT;
+        window.setType(WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA);
+
+        mDialog.setContentView(content, new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT
+        ));
+        mDialog.show();
     }
 
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        
+        if (mDialog != null) mDialog.dismiss();
+        
         if (mWallpaperConnection != null) {
             mWallpaperConnection.disconnect();
         }
@@ -190,8 +225,8 @@ public class LiveWallpaperPreview extends Activity {
                     final View view = mView;
                     final View root = view.getRootView();
                     mService.attach(this, view.getWindowToken(),
-                            WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA,
-                            true, root.getWidth(), view.getHeight());
+                            WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA_OVERLAY,
+                            true, root.getWidth(), root.getHeight());
                 } catch (RemoteException e) {
                     Log.w(LOG_TAG, "Failed attaching wallpaper; clearing", e);
                 }

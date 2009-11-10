@@ -45,7 +45,7 @@
         <activity android:name="LiveWallpaperPreview"
             android:icon="@drawable/ic_launcher_appwidget"
             android:label="@string/live_wallpaper_preview_title"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:theme="@style/Preview"
             android:screenOrientation="nosensor" />
         
     </application>
