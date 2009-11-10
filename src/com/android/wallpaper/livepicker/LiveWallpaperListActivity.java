@@ -74,6 +74,7 @@ public class LiveWallpaperListActivity extends ListActivity implements AdapterVi
         getListView().setOnItemClickListener(this);
     }
 
+    // TODO: THIS SHOULD HAPPEN IN AN ASYNCTASK
     private void findLiveWallpapers() {
         List<ResolveInfo> list = mPackageManager.queryIntentServices(
                 new Intent(WallpaperService.SERVICE_INTERFACE),
