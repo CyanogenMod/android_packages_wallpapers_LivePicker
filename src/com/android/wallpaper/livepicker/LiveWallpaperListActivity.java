@@ -220,8 +220,13 @@ public class LiveWallpaperListActivity extends ListActivity implements AdapterVi
 
             WallpaperInfo info = mWallpaperInfos.get(position);
             holder.thumbnail.setImageDrawable(mThumbnails.get(position));
-            holder.titleAuthor.setText(getString(R.string.wallpaper_title_and_author,
-                    info.loadLabel(mPackageManager), info.loadAuthor(mPackageManager)));
+            try {
+                CharSequence author = info.loadAuthor(mPackageManager);
+                holder.titleAuthor.setText(getString(R.string.wallpaper_title_and_author,
+                    info.loadLabel(mPackageManager), author));
+            } catch (Resources.NotFoundException e) {
+                holder.titleAuthor.setText(info.loadLabel(mPackageManager));
+            }
             holder.description.setText(Html.fromHtml(
                     info.loadDescription(mPackageManager).toString()));
 
