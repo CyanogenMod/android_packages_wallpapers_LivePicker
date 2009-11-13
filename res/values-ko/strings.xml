@@ -17,8 +17,11 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"라이브 배경화면 선택기"</string>
     <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"라이브 배경화면"</string>
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"라이브 배경화면 미리보기"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"설정…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"배경화면 설정"</string>
     <string name="live_wallpaper_empty" msgid="4278728108785853407">"라이브 배경화면이 없습니다."</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"배경화면 설정"</string>
+    <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g> 개발자: <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
+    <string name="live_wallpaper_loading" msgid="7133792272608415456">"라이브 배경화면 로드 중..."</string>
 </resources>

@@ -15,12 +15,13 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for application_name (4119979710394894209) -->
-    <skip />
+    <string name="application_name" msgid="4119979710394894209">"Επιλογέας ταπετσαρίας Live"</string>
     <string name="live_wallpaper_picker_title" msgid="7738370557178100072">"Ζωντανή ταπετσαρία"</string>
-    <!-- no translation found for configure_wallpaper (7396598925806288258) -->
-    <skip />
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Προεπισκόπηση κινούμενης ταπετσαρίας"</string>
+    <string name="configure_wallpaper" msgid="7396598925806288258">"Ρυθμίσεις…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Ορισμός ταπετσαρίας"</string>
     <string name="live_wallpaper_empty" msgid="4278728108785853407">"Δεν υπάρχουν ζωντανές ταπετσαρίες."</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"Ορισμός ταπετσαρίας"</string>
+    <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g>του/της <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
+    <string name="live_wallpaper_loading" msgid="7133792272608415456">"Φόρτωση κινούμενης ταπετσαρίας..."</string>
 </resources>
