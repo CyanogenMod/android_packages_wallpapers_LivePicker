@@ -20,6 +20,6 @@
 <resources>
     <dimen name="live_wallpaper_thumbnail_text_size">14dip</dimen>
     <dimen name="live_wallpaper_thumbnail_text_offset">12dip</dimen>
-    <dimen name="live_wallpaper_thumbnail_width">100dip</dimen>
-    <dimen name="live_wallpaper_thumbnail_height">79dip</dimen>
+    <dimen name="live_wallpaper_thumbnail_width">75dip</dimen>
+    <dimen name="live_wallpaper_thumbnail_height">75dip</dimen>
 </resources>
