@@ -222,8 +222,13 @@ public class LiveWallpaperListActivity extends ListActivity implements AdapterVi
             holder.thumbnail.setImageDrawable(mThumbnails.get(position));
             // author not currently used
             holder.titleAuthor.setText(info.loadLabel(mPackageManager));
-            holder.description.setText(Html.fromHtml(
-                    info.loadDescription(mPackageManager).toString()));
+            try {
+                holder.description.setVisibility(View.VISIBLE);
+                holder.description.setText(Html.fromHtml(
+                        info.loadDescription(mPackageManager).toString()));
+            } catch (Resources.NotFoundException e) {
+                holder.description.setVisibility(View.GONE);
+            }
 
             return convertView;
         }
