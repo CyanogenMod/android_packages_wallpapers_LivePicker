@@ -161,12 +161,12 @@ public class LiveWallpaperPreview extends Activity {
         Window window = mDialog.getWindow();
         WindowManager.LayoutParams lp = window.getAttributes();
 
-        lp.width = WindowManager.LayoutParams.FILL_PARENT;
-        lp.height = WindowManager.LayoutParams.FILL_PARENT;
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
         window.setType(WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA);
 
         mDialog.setContentView(content, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         ));
         mDialog.show();
     }
