@@ -22,6 +22,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.wallpaper.livepicker">
 
+    <original-package android:name="com.android.wallpaper.livepicker" />
+
     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
     <uses-permission android:name="android.permission.BIND_WALLPAPER" />
     
