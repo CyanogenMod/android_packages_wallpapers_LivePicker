@@ -15,13 +15,13 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="4119979710394894209">"即時桌布挑選器"</string>
-    <string name="live_wallpaper_picker_title" msgid="6161053357728149149">"即時桌布"</string>
-    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"即時桌布預覽"</string>
+    <string name="application_name" msgid="4119979710394894209">"動態桌布挑選器"</string>
+    <string name="live_wallpaper_picker_title" msgid="6161053357728149149">"動態桌布"</string>
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"動態桌布預覽"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"設定..."</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"設定桌布"</string>
-    <string name="live_wallpaper_empty" msgid="4278728108785853407">"沒有即時桌布。"</string>
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"無動態桌布。"</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"設定桌布"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g> 製作者：<xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
-    <string name="live_wallpaper_loading" msgid="2488371303130330734">"正在載入即時桌布..."</string>
+    <string name="live_wallpaper_loading" msgid="2488371303130330734">"正在載入動態桌布..."</string>
 </resources>

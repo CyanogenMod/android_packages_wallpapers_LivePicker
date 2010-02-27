@@ -16,12 +16,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"动态壁纸选择器"</string>
-    <string name="live_wallpaper_picker_title" msgid="6161053357728149149">"当前壁纸"</string>
-    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"当前壁纸预览"</string>
+    <string name="live_wallpaper_picker_title" msgid="6161053357728149149">"动态壁纸"</string>
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"动态壁纸预览"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"设置..."</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"设置壁纸"</string>
-    <string name="live_wallpaper_empty" msgid="4278728108785853407">"无当前壁纸。"</string>
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"无动态壁纸。"</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"设置壁纸"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g>提供者：<xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
-    <string name="live_wallpaper_loading" msgid="2488371303130330734">"正在载入当前壁纸…"</string>
+    <string name="live_wallpaper_loading" msgid="2488371303130330734">"正在载入动态壁纸…"</string>
 </resources>
