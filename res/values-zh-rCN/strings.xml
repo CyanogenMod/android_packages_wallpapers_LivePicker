@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="4119979710394894209">"动态壁纸选择器"</string>
+    <string name="application_name" msgid="4119979710394894209">"Live Wallpaper Picker"</string>
     <string name="live_wallpaper_picker_title" msgid="6161053357728149149">"动态壁纸"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"动态壁纸预览"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"设置..."</string>
