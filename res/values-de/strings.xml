@@ -25,7 +25,7 @@
     <string name="configure_wallpaper" msgid="7396598925806288258">"Einstellungen…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Hintergrund festlegen"</string>
     <string name="live_wallpaper_empty" msgid="4278728108785853407">"Keine Live-Hintergründe"</string>
-    <string name="set_live_wallpaper" msgid="2381437614949033266">"Hintergrundbild festlegen"</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Hintergrund festlegen"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g> von <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
     <string name="live_wallpaper_loading" msgid="2488371303130330734">"Live-Hintergrund wird geladen…"</string>
 </resources>
