@@ -196,10 +196,28 @@ public class LiveWallpaperPreview extends Activity {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             onUserInteraction();
         }
-        if (getWindow().superDispatchTouchEvent(ev)) {
-            return true;
+        boolean handled = getWindow().superDispatchTouchEvent(ev);
+        if (!handled) {
+            handled = onTouchEvent(ev);
         }
-        return onTouchEvent(ev);
+
+        if (!handled && mWallpaperConnection != null && mWallpaperConnection.mEngine != null) {
+            int action = ev.getActionMasked();
+            try {
+                if (action == MotionEvent.ACTION_UP) {
+                    mWallpaperConnection.mEngine.dispatchWallpaperCommand(
+                            WallpaperManager.COMMAND_TAP,
+                            (int) ev.getX(), (int) ev.getY(), 0, null);
+                } else if (action == MotionEvent.ACTION_POINTER_UP) {
+                    int pointerIndex = ev.getActionIndex();
+                    mWallpaperConnection.mEngine.dispatchWallpaperCommand(
+                            WallpaperManager.COMMAND_SECONDARY_TAP,
+                            (int) ev.getX(pointerIndex), (int) ev.getY(pointerIndex), 0, null);
+                }
+            } catch (RemoteException e) {
+            }
+        }
+        return handled;
     }
     
     class WallpaperConnection extends IWallpaperConnection.Stub implements ServiceConnection {
