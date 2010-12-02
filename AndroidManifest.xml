@@ -34,7 +34,8 @@
         <activity android:name="LiveWallpaperListActivity"
             android:icon="@drawable/ic_launcher_live_wallpaper"
             android:label="@string/live_wallpaper_picker_title"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@style/LivePickerTheme"
+            android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.service.wallpaper.LIVE_WALLPAPER_CHOOSER" />
                 <action android:name="android.intent.action.SET_WALLPAPER" />

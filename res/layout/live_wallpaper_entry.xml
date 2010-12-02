@@ -29,7 +29,7 @@
         android:id="@+id/thumbnail"
 
         android:layout_width="@dimen/live_wallpaper_thumbnail_width"
-        android:layout_height="@dimen/live_wallpaper_thumbnail_width"
+        android:layout_height="@dimen/live_wallpaper_thumbnail_height"
 
         android:layout_gravity="center_vertical"
 
@@ -47,7 +47,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/title_author"
+            android:id="@+id/title"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

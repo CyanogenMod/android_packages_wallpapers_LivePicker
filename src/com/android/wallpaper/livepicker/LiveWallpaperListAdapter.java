@@ -55,13 +55,29 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
     private final LayoutInflater mInflater;
     private final PackageManager mPackageManager;
 
-    private List<LiveWallpaperInfo> mWallpapers = new ArrayList<LiveWallpaperInfo>();
+    private List<LiveWallpaperInfo> mWallpapers;
 
+    @SuppressWarnings("unchecked")
     public LiveWallpaperListAdapter(Context context) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPackageManager = context.getPackageManager();
 
-        new LiveWallpaperEnumerator(context).execute();
+        List<ResolveInfo> list = mPackageManager.queryIntentServices(
+                new Intent(WallpaperService.SERVICE_INTERFACE),
+                PackageManager.GET_META_DATA);
+
+        mWallpapers = generatePlaceholderViews(list.size());
+
+        new LiveWallpaperEnumerator(context).execute(list);
+    }
+
+    private List<LiveWallpaperInfo> generatePlaceholderViews(int amount) {
+        ArrayList<LiveWallpaperInfo> list = new ArrayList<LiveWallpaperInfo>(amount);
+        for (int i = 0; i < amount; i++) {
+            LiveWallpaperInfo info = new LiveWallpaperInfo();
+            list.add(info);
+        }
+        return list;
     }
 
     public int getCount() {
@@ -85,7 +101,7 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
             convertView = mInflater.inflate(R.layout.live_wallpaper_entry, parent, false);
 
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.title_author);
+            holder.title = (TextView) convertView.findViewById(R.id.title);
             holder.description = (TextView) convertView.findViewById(R.id.description);
             holder.thumbnail = (ImageView) convertView.findViewById(R.id.thumbnail);
             convertView.setTag(holder);
@@ -94,15 +110,28 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
         }
 
         LiveWallpaperInfo wallpaperInfo = mWallpapers.get(position);
-        holder.thumbnail.setImageDrawable(wallpaperInfo.thumbnail);
-        holder.title.setText(wallpaperInfo.info.loadLabel(mPackageManager));
-        try {
-            holder.description.setVisibility(View.VISIBLE);
-            holder.description.setText(Html.fromHtml(
-                    wallpaperInfo.info.loadDescription(mPackageManager).toString()));
-        } catch (Resources.NotFoundException e) {
-            holder.description.setVisibility(View.GONE);
+        if (holder.thumbnail != null) {
+            holder.thumbnail.setImageDrawable(wallpaperInfo.thumbnail);
         }
+
+        if (holder.title != null && wallpaperInfo.info != null) {
+            holder.title.setText(wallpaperInfo.info.loadLabel(mPackageManager));
+            if (holder.thumbnail == null) {
+                holder.title.setCompoundDrawablesWithIntrinsicBounds(null, wallpaperInfo.thumbnail,
+                    null, null);
+            }
+        }
+
+        if (holder.description != null && wallpaperInfo.info != null) {
+            try {
+                holder.description.setVisibility(View.VISIBLE);
+                holder.description.setText(Html.fromHtml(
+                        wallpaperInfo.info.loadDescription(mPackageManager).toString()));
+            } catch (Resources.NotFoundException e) {
+                holder.description.setVisibility(View.GONE);
+            }
+        }
+
         return convertView;
     }
 
@@ -118,21 +147,22 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
         ImageView thumbnail;
     }
 
-    private class LiveWallpaperEnumerator extends AsyncTask<Void, LiveWallpaperInfo, Void> {
+    private class LiveWallpaperEnumerator extends
+            AsyncTask<List<ResolveInfo>, LiveWallpaperInfo, Void> {
         private Context mContext;
+        private int mWallpaperPosition;
 
         public LiveWallpaperEnumerator(Context context) {
             super();
             mContext = context;
+            mWallpaperPosition = 0;
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(List<ResolveInfo>... params) {
             final PackageManager packageManager = mContext.getPackageManager();
 
-            List<ResolveInfo> list = packageManager.queryIntentServices(
-                    new Intent(WallpaperService.SERVICE_INTERFACE),
-                    PackageManager.GET_META_DATA);
+            List<ResolveInfo> list = params[0];
 
             final Resources res = mContext.getResources();
             BitmapDrawable galleryIcon = (BitmapDrawable) res.getDrawable(
@@ -214,7 +244,12 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
         @Override
         protected void onProgressUpdate(LiveWallpaperInfo...infos) {
             for (LiveWallpaperInfo info : infos) {
-                mWallpapers.add(info);
+                if (mWallpaperPosition < mWallpapers.size()) {
+                    mWallpapers.set(mWallpaperPosition, info);
+                } else {
+                    mWallpapers.add(info);
+                }
+                mWallpaperPosition++;
                 LiveWallpaperListAdapter.this.notifyDataSetChanged();
             }
         }

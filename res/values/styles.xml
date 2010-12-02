@@ -28,9 +28,14 @@
         <item name="android:gravity">left</item>
     </style>
     
-    <style name="Preview" parent="@android:style/Theme.NoTitleBar">
+    <style name="Preview" parent="android:Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+
+    <style name="LivePickerTheme" parent="android:style/Theme.Holo">
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>
