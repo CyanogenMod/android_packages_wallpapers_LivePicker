@@ -20,12 +20,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.FragmentTransaction;
+import android.app.Fragment;
 import android.app.WallpaperInfo;
 import android.os.Bundle;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,28 +32,22 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
-public class LiveWallpaperListActivity extends Activity {
+public class LiveWallpaperActivity extends Activity {
     private static final String LOG_TAG = "LiveWallpapersPicker";
     private static final int REQUEST_PREVIEW = 100;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.live_wallpaper_base);
-        ViewGroup baseView = (ViewGroup) findViewById(R.id.live_wallpaper_base_view);
 
-        boolean isXLarge = (getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE;
-
-        DialogFragment fragment = new WallpaperDialogFragment(this, baseView, !isXLarge);
-        if (isXLarge) {
-            // When the screen is XLarge
+        Fragment fragmentView = getFragmentManager().findFragmentById(R.id.live_wallpaper_fragment);
+        if (fragmentView == null) {
+            /* When the screen is XLarge, the fragment is not included in the layout, so show it
+             * as a dialog
+             */
+            DialogFragment fragment = WallpaperDialog.newInstance();
             fragment.show(getFragmentManager(), "dialog");
-        } else {
-            // When the screen is normal. i.e: a phone
-            FragmentTransaction ft = getFragmentManager().openTransaction();
-            ft.add(R.id.live_wallpaper_base_view, fragment);
-            ft.commit();
         }
     }
 
@@ -67,32 +60,35 @@ public class LiveWallpaperListActivity extends Activity {
         }
     }
 
-    private class WallpaperDialogFragment extends DialogFragment implements
+    public static class WallpaperDialog extends DialogFragment implements
             AdapterView.OnItemClickListener{
-        private Activity mActivity;
         private LiveWallpaperListAdapter mAdapter;
-        private ViewGroup mBaseView;
-        private boolean mEmbedded;
 
-        public WallpaperDialogFragment(Activity activity, ViewGroup baseView, boolean embedded) {
-            mActivity = activity;
-            mEmbedded = embedded;
-            mBaseView = baseView;
-            setCancelable(true);
+        public static WallpaperDialog newInstance() {
+            WallpaperDialog dialog = new WallpaperDialog();
+            dialog.setCancelable(true);
+            return dialog;
         }
 
         @Override
         public void onDismiss(DialogInterface dialog) {
-            mActivity.finish();
+            /* On orientation changes, the dialog is effectively "dismissed" so this is called
+             * when the activity is no longer associated with this dying dialog fragment. We
+             * should just safely ignore this case by checking if getActivity() returns null
+             */
+            Activity activity = getActivity();
+            if (activity != null) {
+                activity.finish();
+            }
         }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final int contentInset = getResources().getDimensionPixelSize(
                     R.dimen.dialog_content_inset);
-            View view = generateView(getLayoutInflater(), mBaseView);
+            View view = generateView(getActivity().getLayoutInflater(), null);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setNegativeButton(R.string.wallpaper_cancel, null);
             builder.setTitle(R.string.live_wallpaper_picker_title);
             builder.setView(view, contentInset, contentInset, contentInset, contentInset);
@@ -102,17 +98,21 @@ public class LiveWallpaperListActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            if (mEmbedded) {
+            /* If this fragment is embedded in the layout of this activity, then we should
+             * generate a view to display. Otherwise, a dialog will be created in
+             * onCreateDialog()
+             */
+            if (isInLayout()) {
                 return generateView(inflater, container);
             }
-            return super.onCreateView(inflater, container, savedInstanceState);
+            return null;
         }
 
         @SuppressWarnings("unchecked")
         private View generateView(LayoutInflater inflater, ViewGroup container) {
             View layout = inflater.inflate(R.layout.live_wallpaper_list, container, false);
 
-            mAdapter = new LiveWallpaperListAdapter(mActivity);
+            mAdapter = new LiveWallpaperListAdapter(getActivity());
             AdapterView<BaseAdapter> adapterView =
                     (AdapterView<BaseAdapter>) layout.findViewById(android.R.id.list);
             adapterView.setAdapter(mAdapter);
@@ -126,7 +126,7 @@ public class LiveWallpaperListActivity extends Activity {
                     (LiveWallpaperListAdapter.LiveWallpaperInfo) mAdapter.getItem(position);
             final Intent intent = wallpaperInfo.intent;
             final WallpaperInfo info = wallpaperInfo.info;
-            LiveWallpaperPreview.showPreview(mActivity, REQUEST_PREVIEW, intent, info);
+            LiveWallpaperPreview.showPreview(getActivity(), REQUEST_PREVIEW, intent, info);
         }
     }
 }

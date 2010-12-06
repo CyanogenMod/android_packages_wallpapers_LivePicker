@@ -31,7 +31,7 @@
         android:label="@string/application_name"
         android:icon="@drawable/ic_launcher_live_wallpaper">
 
-        <activity android:name="LiveWallpaperListActivity"
+        <activity android:name="LiveWallpaperActivity"
             android:icon="@drawable/ic_launcher_live_wallpaper"
             android:label="@string/live_wallpaper_picker_title"
             android:theme="@style/LivePickerTheme"
