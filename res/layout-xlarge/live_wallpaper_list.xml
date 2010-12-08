@@ -20,12 +20,12 @@
     android:gravity="center">
     <GridView
         android:id="@android:id/list"
-        android:layout_width="800dp"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_gravity="center"
         android:numColumns="3"
-        android:stretchMode="columnWidth"
-        android:horizontalSpacing="15dp"
+        android:stretchMode="spacingWidth"
+        android:columnWidth="@dimen/live_wallpaper_grid_item_width"
         android:verticalSpacing="15dp"
         android:drawSelectorOnTop="false" />
     <TextView

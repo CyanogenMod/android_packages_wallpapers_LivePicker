@@ -18,8 +18,7 @@
 -->
 
 <resources>
-    <dimen name="live_wallpaper_thumbnail_width">200dip</dimen>
-    <dimen name="live_wallpaper_thumbnail_height">145dip</dimen>
+    <dimen name="live_wallpaper_grid_item_width">230dip</dimen>
     <dimen name="live_wallpaper_grid_item_height">185dip</dimen>
     <dimen name="live_wallpaper_preview_button_width">200dip</dimen>
 </resources>
