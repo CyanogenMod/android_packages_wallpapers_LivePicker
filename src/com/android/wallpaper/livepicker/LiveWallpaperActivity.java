@@ -62,12 +62,30 @@ public class LiveWallpaperActivity extends Activity {
 
     public static class WallpaperDialog extends DialogFragment implements
             AdapterView.OnItemClickListener{
+        private static final String EMBEDDED_KEY = "com.android.wallpaper.livepicker."
+                + "LiveWallpaperActivity$WallpaperDialog.EMBEDDED_KEY";
         private LiveWallpaperListAdapter mAdapter;
+        private boolean mEmbedded;
 
         public static WallpaperDialog newInstance() {
             WallpaperDialog dialog = new WallpaperDialog();
             dialog.setCancelable(true);
             return dialog;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            if (savedInstanceState != null && savedInstanceState.containsKey(EMBEDDED_KEY)) {
+                mEmbedded = savedInstanceState.getBoolean(EMBEDDED_KEY);
+            } else {
+                mEmbedded = isInLayout();
+            }
+        }
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            outState.putBoolean(EMBEDDED_KEY, mEmbedded);
         }
 
         @Override
@@ -102,7 +120,7 @@ public class LiveWallpaperActivity extends Activity {
              * generate a view to display. Otherwise, a dialog will be created in
              * onCreateDialog()
              */
-            if (isInLayout()) {
+            if (mEmbedded) {
                 return generateView(inflater, container);
             }
             return null;
