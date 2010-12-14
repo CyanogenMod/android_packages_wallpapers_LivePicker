@@ -28,6 +28,5 @@
     <string name="set_live_wallpaper" msgid="2381437614949033266">"Установить фоновый рисунок"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g>, автор: <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
     <string name="live_wallpaper_loading" msgid="2488371303130330734">"Загрузка живых обоев…"</string>
-    <!-- no translation found for wallpaper_cancel (7340240618834119228) -->
-    <skip />
+    <string name="wallpaper_cancel" msgid="7340240618834119228">"Отмена"</string>
 </resources>
