@@ -26,14 +26,14 @@
 
     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
     <uses-permission android:name="android.permission.BIND_WALLPAPER" />
-    
+
     <application
         android:label="@string/application_name"
         android:icon="@drawable/ic_launcher_live_wallpaper">
 
         <activity android:name="LiveWallpaperActivity"
             android:icon="@drawable/ic_launcher_live_wallpaper"
-            android:label="@string/live_wallpaper_picker_title"
+            android:label="@string/live_wallpaper_picker_label"
             android:theme="@style/LivePickerTheme"
             android:hardwareAccelerated="true">
             <intent-filter>

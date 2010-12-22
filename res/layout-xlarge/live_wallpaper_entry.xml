@@ -15,14 +15,14 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/live_wallpaper_grid_item_height"
-    android:padding="6dip">
+    android:padding="8dp">
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/live_wallpaper_grid_item_width"
+        android:layout_height="@dimen/live_wallpaper_grid_item_height"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:scaleType="centerCrop" />
@@ -33,7 +33,13 @@
         android:layout_weight="0"
         android:layout_gravity="center"
         android:gravity="bottom"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:singleLine="true"
-        android:ellipsize="marquee" />
+        android:ellipsize="marquee"
+
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp"
+        android:shadowColor="#FF000000"
+        android:shadowDx="0.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0" />
 </LinearLayout>
