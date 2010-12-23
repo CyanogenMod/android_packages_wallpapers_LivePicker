@@ -21,6 +21,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"動態桌布挑選器"</string>
     <!-- outdated translation 6161053357728149149 -->     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"動態桌布"</string>
+    <!-- no translation found for live_wallpaper_picker_label (3218000114890071946) -->
+    <skip />
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"動態桌布預覽"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"設定..."</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"設定桌布"</string>
