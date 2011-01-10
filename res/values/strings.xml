@@ -25,7 +25,7 @@
     <!-- Title for the screen that lets the user choose a live wallpaper to use
          for the system. -->
     <string name="live_wallpaper_picker_title">Select live wallpaper</string>
-    <!-- Label for the live wallpaper picker. -->
+    <!-- Label for the live wallpaper picker [CHAR_LIMIT=40]-->
     <string name="live_wallpaper_picker_label">Live Wallpapers</string>
     <!-- Title for the screen that lets the user preview a live wallpaper. -->
     <string name="live_wallpaper_preview_title">Live wallpaper preview</string>
