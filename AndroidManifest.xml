@@ -41,6 +41,8 @@
                 <action android:name="android.intent.action.SET_WALLPAPER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <meta-data android:name="android.wallpaper.preview"
+                android:resource="@xml/wallpaper_picker_preview" />
         </activity>
 
         <activity android:name="LiveWallpaperPreview"
