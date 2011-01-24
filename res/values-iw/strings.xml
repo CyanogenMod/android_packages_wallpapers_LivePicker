@@ -21,8 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"בוחר טפטים מונפשים"</string>
     <!-- outdated translation 6161053357728149149 -->     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"טפטים מונפשים"</string>
-    <!-- no translation found for live_wallpaper_picker_label (3218000114890071946) -->
-    <skip />
+    <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"טפטים מונפשים"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"תצוגה מקדימה של טפט מונפש"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"הגדרות…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"הגדר טפט"</string>
