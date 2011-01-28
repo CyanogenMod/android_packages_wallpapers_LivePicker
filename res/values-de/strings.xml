@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"Live-Hintergrund-Auswahl"</string>
     <!-- outdated translation 3728411910184514536 -->     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"Live-Hintergrund auswählen"</string>
-    <!-- outdated translation 992118830269531619 -->     <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Live-Hintergründe"</string>
+    <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Live-Hintergründe"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Vorschau für Live-Hintergrund"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"Einstellungen…"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Hintergrund festlegen"</string>
