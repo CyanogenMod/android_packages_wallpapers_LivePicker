@@ -231,10 +231,7 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
 
                     thumb = new BitmapDrawable(res, thumbnail);
                 }
-
-                thumb.setDither(true);
                 wallpaper.thumbnail = thumb;
-
                 publishProgress(wallpaper);
             }
 
@@ -244,6 +241,7 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
         @Override
         protected void onProgressUpdate(LiveWallpaperInfo...infos) {
             for (LiveWallpaperInfo info : infos) {
+                info.thumbnail.setDither(true);
                 if (mWallpaperPosition < mWallpapers.size()) {
                     mWallpapers.set(mWallpaperPosition, info);
                 } else {
