@@ -19,24 +19,15 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- outdated translation 5865630159700533006 -->     <string name="application_name" msgid="4119979710394894209">"Laman Utama"</string>
-    <!-- no translation found for live_wallpaper_picker_title (4811278937634144675) -->
-    <skip />
-    <!-- no translation found for live_wallpaper_picker_label (3218000114890071946) -->
-    <skip />
-    <!-- no translation found for live_wallpaper_preview_title (1130080613611954763) -->
-    <skip />
-    <!-- no translation found for configure_wallpaper (7396598925806288258) -->
-    <skip />
+    <string name="application_name" msgid="4119979710394894209">"Pemilih Kertas Dinding Langsung"</string>
+    <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"Pilih kertas dinding langsung"</string>
+    <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Kertas Dinding Langsung"</string>
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Pratonton kertas dinding langsung"</string>
+    <string name="configure_wallpaper" msgid="7396598925806288258">"Tetapan..."</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Tetapkan kertas dinding"</string>
-    <!-- no translation found for live_wallpaper_empty (4278728108785853407) -->
-    <skip />
-    <!-- no translation found for set_live_wallpaper (2381437614949033266) -->
-    <skip />
-    <!-- no translation found for wallpaper_title_and_author (8891734217843935304) -->
-    <skip />
-    <!-- no translation found for live_wallpaper_loading (2488371303130330734) -->
-    <skip />
-    <!-- no translation found for wallpaper_cancel (7340240618834119228) -->
-    <skip />
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Tiada kertas dinding langsung."</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Tetapkan kertas dinding"</string>
+    <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g> oleh <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
+    <string name="live_wallpaper_loading" msgid="2488371303130330734">"Memuatkan kertas dinding hidup…"</string>
+    <string name="wallpaper_cancel" msgid="7340240618834119228">"Batal"</string>
 </resources>
