@@ -19,15 +19,15 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="4119979710394894209">"Ukukhetha Iphephadonga Elibukhoma"</string>
+    <string name="application_name" msgid="4119979710394894209">"Isikhethi Sephephadonga Elibukhoma"</string>
     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"Khetha iphephadonga elibukhoma"</string>
     <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Amaphephadonga Abukhoma"</string>
-    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Ukuhlola kuqala iphephadonga elibukhoma"</string>
+    <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Ukubuka iphephadonga elibukhoma"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"Izilungiselelo..."</string>
     <!-- no translation found for wallpaper_instructions (4215640646180727542) -->
     <skip />
-    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Awekho amaphephadonga asebenzayo."</string>
-    <string name="set_live_wallpaper" msgid="2381437614949033266">"Hlela iphephadonga"</string>
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"Awekho amaphephadonga abukhoma."</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Setha iphephadonga"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g>ngu-<xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
     <string name="live_wallpaper_loading" msgid="2488371303130330734">"Ilayisha iphephadonga elibukhoma..."</string>
     <string name="wallpaper_cancel" msgid="7340240618834119228">"Khansela"</string>
