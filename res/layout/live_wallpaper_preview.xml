@@ -15,30 +15,34 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
     android:layout_gravity="center_horizontal|bottom"
-
-    android:paddingBottom="4dip">
-
-    <Button
-        android:layout_width="@dimen/live_wallpaper_preview_button_width"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-
-        android:text="@string/wallpaper_instructions"
-
-        android:onClick="setLiveWallpaper" />
+    android:background="#88000000"
+    style="?android:attr/buttonBarStyle">
 
     <Button
         android:id="@+id/configure"
 
-        android:layout_width="@dimen/live_wallpaper_preview_button_width"
+        android:layout_width="0dip"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_gravity="center_vertical"
 
         android:text="@string/configure_wallpaper"
 
-        android:onClick="configureLiveWallpaper" />
+        android:onClick="configureLiveWallpaper"
+        style="?android:attr/buttonBarButtonStyle" />
+
+    <Button
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+
+        android:text="@string/wallpaper_instructions"
+
+        android:onClick="setLiveWallpaper"
+        style="?android:attr/buttonBarButtonStyle" />
 </LinearLayout>
