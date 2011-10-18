@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="4119979710394894209">"Selector d\'empaperat dinàmic"</string>
+    <string name="application_name" msgid="4119979710394894209">"Selector de fons de pantalla animat"</string>
     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"Selecció del fons de pantalla animat"</string>
     <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Fons de pantalla animats"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Visualització prèvia de l\'empaperat dinàmic"</string>
