@@ -102,7 +102,6 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
 
             holder = new ViewHolder();
             holder.title = (TextView) convertView.findViewById(R.id.title);
-            holder.description = (TextView) convertView.findViewById(R.id.description);
             holder.thumbnail = (ImageView) convertView.findViewById(R.id.thumbnail);
             convertView.setTag(holder);
         } else {
@@ -122,16 +121,6 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
             }
         }
 
-        if (holder.description != null && wallpaperInfo.info != null) {
-            try {
-                holder.description.setVisibility(View.VISIBLE);
-                holder.description.setText(Html.fromHtml(
-                        wallpaperInfo.info.loadDescription(mPackageManager).toString()));
-            } catch (Resources.NotFoundException e) {
-                holder.description.setVisibility(View.GONE);
-            }
-        }
-
         return convertView;
     }
 
@@ -143,7 +132,6 @@ public class LiveWallpaperListAdapter extends BaseAdapter implements ListAdapter
 
     private class ViewHolder {
         TextView title;
-        TextView description;
         ImageView thumbnail;
     }
 
