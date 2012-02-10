@@ -20,7 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="4119979710394894209">"Selectur da funds davos animads"</string>
-    <!-- outdated translation 6161053357728149149 -->     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"Funds davos animads"</string>
+    <!-- no translation found for live_wallpaper_picker_title (4811278937634144675) -->
+    <skip />
     <!-- no translation found for live_wallpaper_picker_label (3218000114890071946) -->
     <skip />
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Prevista dal fund davos animà"</string>
