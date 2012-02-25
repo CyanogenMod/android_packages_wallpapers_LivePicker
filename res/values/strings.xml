@@ -28,7 +28,7 @@
     <!-- Title for the screen that lets the user preview a live wallpaper. -->
     <string name="live_wallpaper_preview_title">Live wallpaper preview</string>
     <!-- List item for configuring the current wallpaper -->
-    <string name="configure_wallpaper">Settings…</string>
+    <string name="configure_wallpaper">Settings\u2026</string>
     <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
     <string name="wallpaper_instructions">Set wallpaper</string>
     <!-- Warning message, no live wallpapers available. -->
@@ -38,6 +38,6 @@
     <!-- Label, title and author of the live wallpaper -->
     <string name="wallpaper_title_and_author"><xliff:g id="title" example="Galaxy">%1$s</xliff:g> by <xliff:g id="author" example="Google">%2$s</xliff:g></string>
     <!-- Message, tells the user the selected live wallpaper is loading. -->
-    <string name="live_wallpaper_loading">Loading live wallpaper…</string>
+    <string name="live_wallpaper_loading">Loading live wallpaper\u2026</string>
 
 </resources>
