@@ -58,6 +58,10 @@ public class LiveWallpaperPreview extends Activity {
     private Dialog mDialog;
 
     static void showPreview(Activity activity, int code, Intent intent, WallpaperInfo info) {
+        if (info == null) {
+            Log.w(LOG_TAG, "Failure showing preview", new Throwable());
+            return;
+        }
         Intent preview = new Intent(activity, LiveWallpaperPreview.class);
         preview.putExtra(EXTRA_LIVE_WALLPAPER_INTENT, intent);
         preview.putExtra(EXTRA_LIVE_WALLPAPER_SETTINGS, info.getSettingsActivity());
