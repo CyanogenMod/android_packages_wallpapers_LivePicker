@@ -32,7 +32,6 @@
         android:icon="@drawable/ic_launcher_live_wallpaper">
 
         <activity android:name="LiveWallpaperActivity"
-            android:icon="@drawable/ic_launcher_live_wallpaper"
             android:label="@string/live_wallpaper_picker_label"
             android:theme="@style/LivePickerTheme"
             android:hardwareAccelerated="true">
@@ -45,8 +44,16 @@
                 android:resource="@xml/wallpaper_picker_preview" />
         </activity>
 
+        <activity android:name="LiveWallpaperChange"
+            android:label="@string/live_wallpaper_preview_title"
+            android:theme="@style/Preview">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.CHANGE_LIVE_WALLPAPER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="LiveWallpaperPreview"
-            android:icon="@drawable/ic_launcher_live_wallpaper"
             android:label="@string/live_wallpaper_preview_title"
             android:theme="@style/Preview" />
     </application>
