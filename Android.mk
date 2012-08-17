@@ -21,8 +21,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := android.software.live_wallpaper.xml
 
-#LOCAL_MODULE_TAGS := user
-
 LOCAL_MODULE_CLASS := ETC
 
 # This will install the file in /system/etc/permissions
