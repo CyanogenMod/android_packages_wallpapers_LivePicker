@@ -306,5 +306,9 @@ public class LiveWallpaperPreview extends Activity {
         public ParcelFileDescriptor setWallpaper(String name) {
             return null;
         }
+
+        @Override
+        public void engineShown(IWallpaperEngine engine) throws RemoteException {
+        }
     }
 }
