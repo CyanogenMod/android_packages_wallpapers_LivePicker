@@ -29,7 +29,7 @@
 
     <application
         android:label="@string/application_name"
-        android:icon="@drawable/ic_launcher_live_wallpaper">
+        android:icon="@mipmap/ic_launcher_live_wallpaper">
 
         <activity android:name="LiveWallpaperActivity"
             android:label="@string/live_wallpaper_picker_label"
