@@ -24,9 +24,9 @@
     <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"Fons de pantalla animats"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"Visualització prèvia del fons de pantalla animat"</string>
     <string name="configure_wallpaper" msgid="7396598925806288258">"Configuració…"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Defineix l\'empaperat"</string>
-    <string name="live_wallpaper_empty" msgid="4278728108785853407">"No hi ha cap empaperat dinàmic."</string>
-    <string name="set_live_wallpaper" msgid="2381437614949033266">"Defineix l\'empaperat"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Estableix el fons de pantalla"</string>
+    <string name="live_wallpaper_empty" msgid="4278728108785853407">"No hi ha cap fons de pantalla animat."</string>
+    <string name="set_live_wallpaper" msgid="2381437614949033266">"Estableix el fons de pantalla"</string>
     <string name="wallpaper_title_and_author" msgid="8891734217843935304">"<xliff:g id="TITLE">%1$s</xliff:g> per <xliff:g id="AUTHOR">%2$s</xliff:g>"</string>
     <string name="live_wallpaper_loading" msgid="2488371303130330734">"S\'està carregant el fons de pantalla animat..."</string>
     <string name="wallpaper_cancel" msgid="7340240618834119228">"Cancel·la"</string>
