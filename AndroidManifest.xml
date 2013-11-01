@@ -29,7 +29,8 @@
 
     <application
         android:label="@string/application_name"
-        android:icon="@mipmap/ic_launcher_live_wallpaper">
+        android:icon="@mipmap/ic_launcher_live_wallpaper"
+        android:supportsRtl="true" >
 
         <activity android:name="LiveWallpaperActivity"
             android:label="@string/live_wallpaper_picker_label"

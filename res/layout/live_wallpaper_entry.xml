@@ -18,8 +18,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:paddingLeft="6dip"
-    android:paddingRight="6dip"
+    android:paddingStart="6dip"
+    android:paddingEnd="6dip"
     android:paddingTop="6dip"
     android:paddingBottom="6dip"
 
@@ -39,10 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="8dip"
+        android:layout_marginStart="10dip"
+        android:layout_marginEnd="8dip"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/thumbnail"
+        android:layout_toEndOf="@id/thumbnail"
 
         android:orientation="vertical">
 
