@@ -78,13 +78,21 @@ public class LiveWallpaperChange extends Activity {
                     Intent intent = new Intent(WallpaperService.SERVICE_INTERFACE);
                     intent.setClassName(info.getPackageName(), info.getServiceName());
                     LiveWallpaperPreview.showPreview(this, 0, intent, info);
-                    finish();
                     return;
                 }
             }
         }
 
         Log.w(TAG, "Not a live wallpaper: " + comp);
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // forward result code
+        setResult(resultCode);
         finish();
     }
 }
