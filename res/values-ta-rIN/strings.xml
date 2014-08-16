@@ -23,7 +23,7 @@
     <string name="live_wallpaper_picker_title" msgid="4811278937634144675">"நேரலை வால்பேப்பரைத் தேர்ந்தெடுக்கவும்"</string>
     <string name="live_wallpaper_picker_label" msgid="3218000114890071946">"லைவ் வால்பேப்பர்கள்"</string>
     <string name="live_wallpaper_preview_title" msgid="1130080613611954763">"நேரலை வால்பேப்பரின் மாதிரிக்காட்சி"</string>
-    <string name="configure_wallpaper" msgid="7396598925806288258">"அமைப்புகள்..."</string>
+    <string name="configure_wallpaper" msgid="7396598925806288258">"அமைப்பு..."</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"வால்பேப்பரை அமை"</string>
     <string name="live_wallpaper_empty" msgid="4278728108785853407">"நேரலை வால்பேப்பர்கள் இல்லை."</string>
     <string name="set_live_wallpaper" msgid="2381437614949033266">"வால்பேப்பரை அமை"</string>
