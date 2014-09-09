@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.WallpaperManager;
 import android.app.WallpaperInfo;
 import android.app.Dialog;
+import android.graphics.Rect;
 import android.service.wallpaper.IWallpaperConnection;
 import android.service.wallpaper.IWallpaperService;
 import android.service.wallpaper.IWallpaperEngine;
@@ -269,7 +270,8 @@ public class LiveWallpaperPreview extends Activity {
                     final View root = view.getRootView();
                     mService.attach(this, view.getWindowToken(),
                             WindowManager.LayoutParams.TYPE_APPLICATION_MEDIA_OVERLAY,
-                            true, root.getWidth(), root.getHeight());
+                            true, root.getWidth(), root.getHeight(),
+                            new Rect(0, 0, 0, 0));
                 } catch (RemoteException e) {
                     Log.w(LOG_TAG, "Failed attaching wallpaper; clearing", e);
                 }
