@@ -16,6 +16,7 @@
 
 package com.android.wallpaper.livepicker;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.WallpaperManager;
 import android.app.WallpaperInfo;
@@ -33,6 +34,8 @@ import android.os.RemoteException;
 import android.os.IBinder;
 import android.os.ParcelFileDescriptor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -81,18 +84,23 @@ public class LiveWallpaperPreview extends Activity {
             finish();
         }
 
-        setContentView(R.layout.live_wallpaper_preview);
-        mView = findViewById(R.id.configure);
+        final ActionBar actionBar = getActionBar();
+        actionBar.setCustomView(R.layout.live_wallpaper_preview);
+        mView = actionBar.getCustomView();
 
         mSettings = extras.getString(EXTRA_LIVE_WALLPAPER_SETTINGS);
         mPackageName = extras.getString(EXTRA_LIVE_WALLPAPER_PACKAGE);
-        if (mSettings == null) {
-            mView.setVisibility(View.GONE);
-        }
-
         mWallpaperManager = WallpaperManager.getInstance(this);
 
         mWallpaperConnection = new WallpaperConnection(mWallpaperIntent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (mSettings != null) {
+            getMenuInflater().inflate(R.menu.menu_preview, menu);
+        }
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void setLiveWallpaper(View v) {
@@ -110,12 +118,16 @@ public class LiveWallpaperPreview extends Activity {
         finish();
     }
 
-    @SuppressWarnings({"UnusedDeclaration"})
-    public void configureLiveWallpaper(View v) {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName(mPackageName, mSettings));
-        intent.putExtra(WallpaperSettingsActivity.EXTRA_PREVIEW_MODE, true);
-        startActivity(intent);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.configure) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(mPackageName, mSettings));
+            intent.putExtra(WallpaperSettingsActivity.EXTRA_PREVIEW_MODE, true);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
