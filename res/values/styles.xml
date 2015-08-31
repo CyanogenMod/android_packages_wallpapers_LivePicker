@@ -19,19 +19,7 @@
 
 <resources>
 
-    <style name="WallpaperTitle">
-        <item name="android:textSize">20dip</item>
-        <item name="android:shadowColor">#FF000000</item>
-        <item name="android:shadowRadius">2.5</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">0</item>
-        <item name="android:textColor">#FFFFFFFF</item>
-        <item name="android:gravity">left</item>
-    </style>
-
-    <style name="LivePickerTheme" parent="android:style/Theme.Holo">
-        <item name="android:windowNoTitle">true</item>
-    </style>
+    <style name="LivePickerTheme" parent="@android:style/Theme.DeviceDefault.Settings" />
 
     <style name="Preview" parent="@android:style/Theme.DeviceDefault">
         <item name="android:actionBarStyle">@style/PreviewActionBar</item>

@@ -34,6 +34,7 @@ import android.os.RemoteException;
 import android.os.IBinder;
 import android.os.ParcelFileDescriptor;
 import android.os.Bundle;
+import android.service.wallpaper.WallpaperService;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -46,9 +47,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 public class LiveWallpaperPreview extends Activity {
-    static final String EXTRA_LIVE_WALLPAPER_INTENT = "android.live_wallpaper.intent";
-    static final String EXTRA_LIVE_WALLPAPER_SETTINGS = "android.live_wallpaper.settings";
-    static final String EXTRA_LIVE_WALLPAPER_PACKAGE = "android.live_wallpaper.package";
+    static final String EXTRA_LIVE_WALLPAPER_INFO = "android.live_wallpaper.info";
 
     private static final String LOG_TAG = "LiveWallpaperPreview";
 
@@ -58,40 +57,38 @@ public class LiveWallpaperPreview extends Activity {
     private String mSettings;
     private String mPackageName;
     private Intent mWallpaperIntent;
+
     private View mView;
     private Dialog mDialog;
-
-    static void showPreview(Activity activity, int code, Intent intent, WallpaperInfo info) {
-        if (info == null) {
-            Log.w(LOG_TAG, "Failure showing preview", new Throwable());
-            return;
-        }
-        Intent preview = new Intent(activity, LiveWallpaperPreview.class);
-        preview.putExtra(EXTRA_LIVE_WALLPAPER_INTENT, intent);
-        preview.putExtra(EXTRA_LIVE_WALLPAPER_SETTINGS, info.getSettingsActivity());
-        preview.putExtra(EXTRA_LIVE_WALLPAPER_PACKAGE, info.getPackageName());
-        activity.startActivityForResult(preview, code);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init();
+    }
 
+    protected void init() {
         Bundle extras = getIntent().getExtras();
-        mWallpaperIntent = (Intent) extras.get(EXTRA_LIVE_WALLPAPER_INTENT);
-        if (mWallpaperIntent == null) {
+        WallpaperInfo info = extras.getParcelable(EXTRA_LIVE_WALLPAPER_INFO);
+        if (info == null) {
             setResult(RESULT_CANCELED);
             finish();
         }
+
+        initUI(info);
+    }
+
+    protected void initUI(WallpaperInfo info) {
+        mSettings = info.getSettingsActivity();
+        mPackageName = info.getPackageName();
+        mWallpaperIntent = new Intent(WallpaperService.SERVICE_INTERFACE)
+                .setClassName(info.getPackageName(), info.getServiceName());
 
         final ActionBar actionBar = getActionBar();
         actionBar.setCustomView(R.layout.live_wallpaper_preview);
         mView = actionBar.getCustomView();
 
-        mSettings = extras.getString(EXTRA_LIVE_WALLPAPER_SETTINGS);
-        mPackageName = extras.getString(EXTRA_LIVE_WALLPAPER_PACKAGE);
         mWallpaperManager = WallpaperManager.getInstance(this);
-
         mWallpaperConnection = new WallpaperConnection(mWallpaperIntent);
     }
 
