@@ -102,13 +102,10 @@ public class LiveWallpaperPreview extends Activity {
 
     public void setLiveWallpaper(View v) {
         try {
-            mWallpaperManager.getIWallpaperManager().setWallpaperComponent(
-                    mWallpaperIntent.getComponent());
+            mWallpaperManager.setWallpaperComponent(mWallpaperIntent.getComponent());
             mWallpaperManager.setWallpaperOffsetSteps(0.5f, 0.0f);
             mWallpaperManager.setWallpaperOffsets(v.getRootView().getWindowToken(), 0.5f, 0.0f);
             setResult(RESULT_OK);
-        } catch (RemoteException e) {
-            // do nothing
         } catch (RuntimeException e) {
             Log.w(LOG_TAG, "Failure setting wallpaper", e);
         }
