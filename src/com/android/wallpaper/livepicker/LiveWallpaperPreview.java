@@ -18,9 +18,11 @@ package com.android.wallpaper.livepicker;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.WallpaperManager;
 import android.app.WallpaperInfo;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Rect;
 import android.service.wallpaper.IWallpaperConnection;
 import android.service.wallpaper.IWallpaperService;
@@ -45,6 +47,8 @@ import android.view.Window;
 import android.view.LayoutInflater;
 import android.util.Log;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 public class LiveWallpaperPreview extends Activity {
     static final String EXTRA_LIVE_WALLPAPER_INFO = "android.live_wallpaper.info";
@@ -100,16 +104,47 @@ public class LiveWallpaperPreview extends Activity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void setLiveWallpaper(View v) {
-        try {
-            mWallpaperManager.setWallpaperComponent(mWallpaperIntent.getComponent());
-            mWallpaperManager.setWallpaperOffsetSteps(0.5f, 0.0f);
-            mWallpaperManager.setWallpaperOffsets(v.getRootView().getWindowToken(), 0.5f, 0.0f);
-            setResult(RESULT_OK);
-        } catch (RuntimeException e) {
-            Log.w(LOG_TAG, "Failure setting wallpaper", e);
+    public void setLiveWallpaper(final View v) {
+        if (mWallpaperManager.getWallpaperId(WallpaperManager.FLAG_SET_LOCK) < 0) {
+            // The lock screen does not have a wallpaper, so no need to prompt; can only set both.
+            try {
+                setLiveWallpaper(v.getRootView().getWindowToken());
+                setResult(RESULT_OK);
+            } catch (RuntimeException e) {
+                Log.w(LOG_TAG, "Failure setting wallpaper", e);
+            }
+            finish();
+        } else {
+            // Otherwise, prompt to either set on home or both home and lock screen.
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.set_live_wallpaper)
+                    .setItems(R.array.which_wallpaper_options, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                setLiveWallpaper(v.getRootView().getWindowToken());
+                                if (which == 1) {
+                                    // "Home screen and lock screen"; clear the lock screen so it
+                                    // shows through to the live wallpaper on home.
+                                    mWallpaperManager.clear(WallpaperManager.FLAG_SET_LOCK);
+                                }
+                                setResult(RESULT_OK);
+                            } catch (RuntimeException e) {
+                                Log.w(LOG_TAG, "Failure setting wallpaper", e);
+                            } catch (IOException e) {
+                                Log.w(LOG_TAG, "Failure setting wallpaper", e);
+                            }
+                            finish();
+                        }
+                    })
+                    .show();
         }
-        finish();
+    }
+
+    private void setLiveWallpaper(IBinder windowToken) {
+        mWallpaperManager.setWallpaperComponent(mWallpaperIntent.getComponent());
+        mWallpaperManager.setWallpaperOffsetSteps(0.5f, 0.0f);
+        mWallpaperManager.setWallpaperOffsets(windowToken, 0.5f, 0.0f);
     }
 
     @Override
@@ -246,7 +281,7 @@ public class LiveWallpaperPreview extends Activity {
                 if (!bindService(mIntent, this, Context.BIND_AUTO_CREATE)) {
                     return false;
                 }
-                
+
                 mConnected = true;
                 return true;
             }
