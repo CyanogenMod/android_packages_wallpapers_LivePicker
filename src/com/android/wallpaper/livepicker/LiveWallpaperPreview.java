@@ -105,7 +105,7 @@ public class LiveWallpaperPreview extends Activity {
     }
 
     public void setLiveWallpaper(final View v) {
-        if (mWallpaperManager.getWallpaperId(WallpaperManager.FLAG_SET_LOCK) < 0) {
+        if (mWallpaperManager.getWallpaperId(WallpaperManager.FLAG_LOCK) < 0) {
             // The lock screen does not have a wallpaper, so no need to prompt; can only set both.
             try {
                 setLiveWallpaper(v.getRootView().getWindowToken());
@@ -126,7 +126,7 @@ public class LiveWallpaperPreview extends Activity {
                                 if (which == 1) {
                                     // "Home screen and lock screen"; clear the lock screen so it
                                     // shows through to the live wallpaper on home.
-                                    mWallpaperManager.clear(WallpaperManager.FLAG_SET_LOCK);
+                                    mWallpaperManager.clear(WallpaperManager.FLAG_LOCK);
                                 }
                                 setResult(RESULT_OK);
                             } catch (RuntimeException e) {
