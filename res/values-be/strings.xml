@@ -18,5 +18,18 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- General -->
+  <!-- Application name -->
+  <!-- Title for the screen that lets the user choose a live wallpaper to use
+         for the system. -->
+  <!-- Label for the live wallpaper picker [CHAR_LIMIT=40]-->
+  <!-- Title for the screen that lets the user preview a live wallpaper. -->
+  <!-- List item for configuring the current wallpaper -->
+  <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
+  <!-- Warning message, no live wallpapers available. -->
+  <!-- Button label, action, sets the currently selected wallpaper. -->
+  <!-- Label, title and author of the live wallpaper -->
+  <!-- Message, tells the user the selected live wallpaper is loading. -->
+  <!-- Button label, action, cancels the wallpaper picker dialog [CHAR_LIMIT=40]-->
   <string name="wallpaper_cancel">Скасаваць</string>
 </resources>
