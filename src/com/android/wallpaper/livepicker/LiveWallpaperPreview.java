@@ -61,8 +61,7 @@ public class LiveWallpaperPreview extends Activity {
 
     private static final String LOG_TAG = "LiveWallpaperPreview";
 
-    // TODO: Remove once we have good data for testing.
-    private static final boolean SHOW_DUMMY_DATA = true;
+    private static final boolean SHOW_DUMMY_DATA = false;
 
     private WallpaperManager mWallpaperManager;
     private WallpaperConnection mWallpaperConnection;
