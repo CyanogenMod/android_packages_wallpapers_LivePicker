@@ -42,13 +42,16 @@ import android.service.wallpaper.WallpaperSettingsActivity;
 import android.support.design.widget.BottomSheetBehavior;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -258,9 +261,10 @@ public class LiveWallpaperPreview extends Activity {
             finish();
         } else {
             // Otherwise, prompt to either set on home or both home and lock screen.
-            new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog)
+            Context themedContext = new ContextThemeWrapper(this, android.R.style.Theme_DeviceDefault_Settings);
+            new AlertDialog.Builder(themedContext)
                     .setTitle(R.string.set_live_wallpaper)
-                    .setItems(R.array.which_wallpaper_options, new DialogInterface.OnClickListener() {
+                    .setAdapter(new WallpaperTargetAdapter(themedContext), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             try {
@@ -271,9 +275,7 @@ public class LiveWallpaperPreview extends Activity {
                                     mWallpaperManager.clear(WallpaperManager.FLAG_LOCK);
                                 }
                                 setResult(RESULT_OK);
-                            } catch (RuntimeException e) {
-                                Log.w(LOG_TAG, "Failure setting wallpaper", e);
-                            } catch (IOException e) {
+                            } catch (RuntimeException|IOException e) {
                                 Log.w(LOG_TAG, "Failure setting wallpaper", e);
                             }
                             finish();
@@ -485,6 +487,32 @@ public class LiveWallpaperPreview extends Activity {
                                 android.R.interpolator.fast_out_linear_in))
                         .withEndAction(() -> mLoading.setVisibility(View.INVISIBLE));
             });
+        }
+    }
+
+    private static class WallpaperTargetAdapter extends ArrayAdapter<CharSequence> {
+
+        public WallpaperTargetAdapter(Context context) {
+            super(context, R.layout.wallpaper_target_dialog_item,
+                    context.getResources().getTextArray(R.array.which_wallpaper_options));
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView tv = (TextView) super.getView(position, convertView, parent);
+            tv.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    position == 0 ? R.drawable.ic_home : R.drawable.ic_device, 0, 0, 0);
+            return tv;
         }
     }
 }
