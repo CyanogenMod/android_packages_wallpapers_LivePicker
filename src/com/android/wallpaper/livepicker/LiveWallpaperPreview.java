@@ -145,6 +145,7 @@ public class LiveWallpaperPreview extends Activity {
                 }
             }
         };
+        mAttributionTitle.setOnClickListener(onClickListener);
         mPreviewPaneArrow.setOnClickListener(onClickListener);
 
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
