@@ -247,6 +247,8 @@ public class LiveWallpaperPreview extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_preview, menu);
         menu.findItem(R.id.configure).setVisible(mSettings != null);
+        menu.findItem(R.id.set_wallpaper).getActionView().setOnClickListener(
+                this::setLiveWallpaper);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -36,7 +36,6 @@
         <item name="colorAccent">@*android:color/accent_device_default_dark</item>
 
         <item name="android:windowDisablePreview">true</item>
-
     </style>
 
     <style name="TranslucentToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
