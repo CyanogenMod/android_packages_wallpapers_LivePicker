@@ -25,10 +25,12 @@
   <!-- Label for the live wallpaper picker [CHAR_LIMIT=40]-->
   <!-- Title for the screen that lets the user preview a live wallpaper. -->
   <!-- List item for configuring the current wallpaper -->
+  <string name="configure_wallpaper">Agordoj&#8230;</string>
   <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
   <!-- Warning message, no live wallpapers available. -->
   <!-- Button label, action, sets the currently selected wallpaper. -->
   <!-- Label, title and author of the live wallpaper -->
   <!-- Message, tells the user the selected live wallpaper is loading. -->
   <!-- Button label, action, cancels the wallpaper picker dialog [CHAR_LIMIT=40]-->
+  <string name="wallpaper_cancel">Nuligi</string>
 </resources>
