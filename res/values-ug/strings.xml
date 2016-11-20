@@ -20,24 +20,30 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General -->
   <!-- Application name -->
+  <string name="application_name">ھەرىكەتچان تام قەغەز تاللىغۇچ</string>
   <!-- Title for the screen that lets the user choose a live wallpaper to use
          for the system. -->
+  <string name="live_wallpaper_picker_title">ەرىكەتچان تام قەغەز تاللاڭ</string>
   <!-- Label for the live wallpaper picker [CHAR_LIMIT=40]-->
+  <string name="live_wallpaper_picker_label">ھەرىكەتچان تام قەغەزلەر</string>
   <!-- Title for the screen that lets the user preview a live wallpaper. -->
+  <string name="live_wallpaper_preview_title">ھەرىكەتچان تام قەغەزنى ئالدىن كۆزەت</string>
   <!-- List item for configuring the current wallpaper -->
+  <string name="configure_wallpaper">تەڭشەكلەر&#8230;</string>
   <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
+  <string name="wallpaper_instructions">تام قەغەز تەڭشىكى</string>
   <!-- Warning message, no live wallpapers available. -->
+  <string name="live_wallpaper_empty">ھەرىكەتچان تام قەغەز يوق.</string>
   <!-- Button label, action, sets the currently selected wallpaper. -->
+  <string name="set_live_wallpaper">تام قەغەز تەڭشىكى</string>
   <!-- Label, title and author of the live wallpaper -->
+  <string name="wallpaper_title_and_author"><xliff:g id="title" example="Galaxy">%1$s</xliff:g>/<xliff:g id="author" example="Google">%2$s</xliff:g></string>
   <!-- Message, tells the user the selected live wallpaper is loading. -->
+  <string name="live_wallpaper_loading">ھەرىكەتچان تام قەغەزنى يۈكلەۋاتىدۇ&#8230;</string>
   <!-- Option for setting the wallpaper only on the home screen. -->
-  <string name="which_wallpaper_option_home_screen">Галоўны экран</string>
   <!-- Option for setting the wallpaper on both the home screen and lock screen. -->
-  <string name="which_wallpaper_option_home_screen_and_lock_screen">Галоўны экран і экран блакіроўкі</string>
   <!-- Content description for a button letting the user collapse a visual panel showing info
          about the wallpaper being previewed. [CHAR LIMIT=none] -->
-  <string name="collapse_attribution_panel">Згарнуць панэль інфармацыі пра шпалеры</string>
   <!-- Content description for a button letting the user expand a visual panel showing info about
          the wallpaper being previewed. [CHAR LIMIT=none] -->
-  <string name="expand_attribution_panel">Разгарнуць панэль інфармацыі пра шпалеры</string>
 </resources>
