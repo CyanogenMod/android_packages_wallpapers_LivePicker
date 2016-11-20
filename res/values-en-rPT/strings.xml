@@ -31,13 +31,9 @@
   <!-- Label, title and author of the live wallpaper -->
   <!-- Message, tells the user the selected live wallpaper is loading. -->
   <!-- Option for setting the wallpaper only on the home screen. -->
-  <string name="which_wallpaper_option_home_screen">Галоўны экран</string>
   <!-- Option for setting the wallpaper on both the home screen and lock screen. -->
-  <string name="which_wallpaper_option_home_screen_and_lock_screen">Галоўны экран і экран блакіроўкі</string>
   <!-- Content description for a button letting the user collapse a visual panel showing info
          about the wallpaper being previewed. [CHAR LIMIT=none] -->
-  <string name="collapse_attribution_panel">Згарнуць панэль інфармацыі пра шпалеры</string>
   <!-- Content description for a button letting the user expand a visual panel showing info about
          the wallpaper being previewed. [CHAR LIMIT=none] -->
-  <string name="expand_attribution_panel">Разгарнуць панэль інфармацыі пра шпалеры</string>
 </resources>
