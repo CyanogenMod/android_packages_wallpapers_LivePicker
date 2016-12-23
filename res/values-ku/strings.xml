@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- General -->
+  <skip></skip>
   <!-- Application name -->
   <string name="application_name">هەڵباردنی وێنەی ڕاستەوخۆ</string>
   <!-- Title for the screen that lets the user choose a live wallpaper to use
